@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Masakan Sunda Rumahan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="LP.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="#top">Rumah Makan</a>
+
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#menu">Menu</a>
+        <a href="#cerita">Cerita</a>
+        <a href="#pesan">Pesan</a>
+      </nav>
+
+      <a class="btn btn--small" href="#pesan">Pesan sekarang</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Nasi liwet panas, sambal ulek, lalap segar.</h1>
+          <p>
+            Masakan Sunda rumahan dari dapur kami di Cimahi. Dimasak dengan kayu bakar,
+            dibungkus daun pisang, diantar hangat ke rumah Anda.
+          </p>
+          <div class="hero-cta">
+            <a class="btn" href="#pesan">Pesan sekarang</a>
+            <a class="btn btn--outline" href="#menu">Lihat menu</a>
+          </div>
+        </div>
+
+        <aside class="hours" aria-label="Jam buka">
+          <h3>Jam buka</h3>
+          <ul>
+            <li><span>Senin – Jumat</span><span>09.00 – 20.00</span></li>
+            <li><span>Sabtu – Minggu</span><span>08.00 – 21.00</span></li>
+          </ul>
+          <div class="hours-status" id="hoursStatus"></div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <section id="menu">
+      <div class="wrap">
+        <h2>Menu andalan</h2>
+        <p class="lead">Pilih kategori, lalu tambahkan ke pesanan. Harga sudah termasuk lalap dan sambal.</p>
+        <div class="tabs" id="tabs" role="tablist" aria-label="Kategori menu"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <!-- Cerita -->
+    <section class="story" id="cerita">
+      <div class="wrap">
+        <div>
+          <h2>Resep dari dapur nenek, di Priangan</h2>
+          <p>
+            Saung Asih dimulai tahun 2015 dari warung kecil di depan rumah. Kami masih menanak liwet
+            di atas tungku, memakai beras pandan wangi, teri medan, dan daun salam yang dipetik pagi hari.
+          </p>
+          <p>Sambal diulek dengan cobek batu setiap hari. Tidak ada penyedap berlebih, hanya bumbu yang jujur.</p>
+        </div>
+
+        <blockquote>
+          Liwetnya wangi, ayamnya empuk, sambalnya pedas pas. Rasanya seperti makan di rumah nenek di Lembang.
+          <cite>Rizky, pelanggan sejak 2018</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="pesan">
+      <div class="wrap order">
+        <div>
+          <h2>Pesan lewat WhatsApp</h2>
+          <p class="lead">
+            Isi nama dan alamat, lalu kirim pesanan. Kami konfirmasi harga antar dan waktu tiba lewat WhatsApp.
+          </p>
+
+          <label for="nama">Nama</label>
+          <input id="nama" autocomplete="name">
+
+          <label for="alamat">Alamat pengantaran</label>
+          <input id="alamat" autocomplete="street-address">
+        </div>
+
+        <div class="cart" aria-live="polite">
+          <h3>Pesanan Anda</h3>
+          <ul id="cartList"></ul>
+          <div class="total">
+            <span>Total</span>
+            <span id="total">Rp0</span>
+          </div>
+          <button class="btn btn--block" id="sendBtn" type="button">Kirim pesanan ke WhatsApp</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <strong>Rumah Makan</strong>
+      <span>Cimahi, Jawa Barat · WhatsApp 0857-9583-2289</span>
+    </div>
+  </footer>
+  <script src="LP.js"></script>
+</body>
+
+</html>

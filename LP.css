@@ -1,0 +1,481 @@
+/* ========== 1. Token warna ========== */
+:root {
+  --bg: #f6f4ec;
+  --ink: #1d2a1f;
+  --leaf: #1f4d2b;
+  --leaf-light: #2f6b3c;
+  --bamboo: #c8a251;
+  --sambal: #b3261e;
+  --card: #fffdf6;
+  --line: #d9d3bf;
+  --on-leaf: #f6f4ec;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121a14;
+    --ink: #ece8da;
+    --leaf: #0d2814;
+    --leaf-light: #3f8a52;
+    --card: #1a251d;
+    --line: #2d3b30;
+    --on-leaf: #ece8da;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #121a14;
+  --ink: #ece8da;
+  --leaf: #0d2814;
+  --leaf-light: #3f8a52;
+  --card: #1a251d;
+  --line: #2d3b30;
+  --on-leaf: #ece8da;
+}
+
+/* ========== 2. Dasar ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 18px/1.65 "Source Serif 4", Georgia, serif;
+}
+
+h1,
+h2,
+h3,
+.btn,
+nav a,
+.tab {
+  font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--bamboo);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 72px 0;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  max-width: 56ch;
+  margin: 0 0 32px;
+  opacity: 0.85;
+}
+
+/* ========== 3. Tombol ========== */
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--sambal);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--on-leaf);
+  box-shadow: inset 0 0 0 2px var(--bamboo);
+}
+
+.btn--small {
+  padding: 8px 16px;
+  font-size: 15px;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ========== 4. Header ========== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.logo {
+  font: 800 22px "Bricolage Grotesque", sans-serif;
+  color: var(--leaf-light);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+}
+
+.nav a {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--sambal);
+}
+
+/* ========== 5. Hero ========== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--leaf);
+  color: var(--on-leaf);
+}
+
+/* Pola anyaman bambu di sisi kanan */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  background:
+    repeating-linear-gradient(45deg, var(--bamboo) 0 10px, transparent 10px 20px),
+    repeating-linear-gradient(-45deg, var(--bamboo) 0 10px, transparent 10px 20px);
+  mask: linear-gradient(90deg, transparent 35%, #000);
+}
+
+.hero .wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.hero h1 {
+  margin: 0 0 20px;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  max-width: 46ch;
+  margin: 0 0 28px;
+  opacity: 0.92;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Kartu jam buka */
+.hours {
+  padding: 24px;
+  border-left: 8px solid var(--bamboo);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.hours h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.hours ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 16px;
+}
+
+.hours-status {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ========== 6. Menu ========== */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  padding: 8px 18px;
+  border: 2px solid var(--line);
+  border-radius: 99px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tab[aria-selected="true"] {
+  border-color: var(--leaf-light);
+  background: var(--leaf-light);
+  color: #fff;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.item h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.item p {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.price {
+  font: 700 18px "Bricolage Grotesque", sans-serif;
+  color: var(--sambal);
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty button {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--leaf-light);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qty button:hover {
+  background: var(--leaf-light);
+  color: #fff;
+}
+
+.qty span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ========== 7. Cerita ========== */
+.story {
+  border-block: 1px solid var(--line);
+  background: var(--card);
+}
+
+.story .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.story blockquote {
+  margin: 0;
+  padding-left: 20px;
+  border-left: 4px solid var(--bamboo);
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.story cite {
+  display: block;
+  margin-top: 12px;
+  font-size: 16px;
+  font-style: normal;
+  opacity: 0.7;
+}
+
+/* ========== 8. Pesanan ========== */
+.order {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font: 500 15px "Bricolage Grotesque", sans-serif;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 11px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+}
+
+.cart {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.cart h3 {
+  margin: 0 0 12px;
+}
+
+.cart ul {
+  min-height: 48px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.cart li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 16px;
+}
+
+.cart .empty {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font: 800 22px "Bricolage Grotesque", sans-serif;
+}
+
+/* ========== 9. Footer ========== */
+.site-footer {
+  padding: 36px 0;
+  background: var(--leaf);
+  color: var(--on-leaf);
+  font-size: 16px;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* ========== 10. Responsif & aksesibilitas ========== */
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+
+  .hero .wrap,
+  .story .wrap,
+  .order {
+    grid-template-columns: 1fr;
+  }
+
+  .hero .wrap {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  section {
+    padding: 52px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
